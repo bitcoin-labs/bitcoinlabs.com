@@ -2,7 +2,6 @@
   "name": "bitcoinlabs.com",
   "version": "0.0.1",
   "dependencies": {
-    "coffee-script": "1.1.0",
     "express": "2.2.0"
   }
 }
