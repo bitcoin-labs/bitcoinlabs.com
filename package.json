@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "2.2.0",
+    "tafa-misc-util": "0.1.2",
     "jade": "0.11.0"
   }
 }

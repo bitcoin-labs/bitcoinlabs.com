@@ -1,16 +1,17 @@
 
-{spawn, exec} = require 'child_process'
+{noisyExec} = require 'tafa-misc-util'
 
 
-run = (str) ->
-  chunks = str.split ' '
-  cmd = chunks[0]
-  args = chunks[1...]
-  p = spawn cmd, args
-  p.stdout.on 'data', (data) -> process.stdout.write data
-  p.stderr.on 'data', (data) -> process.stderr.write data
+watch = () ->
+  noisyExec "coffee -cwo lib src"
+  noisyExec "stylus -c -w lib/public"
+
+task 'watch', watch
+
+task 'dev', () ->
+  watch()
+  noisyExec "hotnode lib/server.js"
 
 
-task 'watch', () ->
-  run "coffee -cwo lib src"
-  run "stylus -c -w lib/public"
+
+
